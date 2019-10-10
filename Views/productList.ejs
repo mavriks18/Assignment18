@@ -1,0 +1,40 @@
+<h1>Product List</h1>
+<link rel="stylesheet" href="/style.css">
+<script type="text/javascript">
+function updatehref(item)
+{
+    var idToUse = item.id.split('_');
+    
+    document.getElementById('lnkItem_'+idToUse[1]).href = document.getElementById('lnkItem_'+idToUse[1]).href + item.value;
+}
+</script>
+
+<table>
+    <tr class="tableStyle">
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        
+        <th></th>
+    </tr>
+    <% products.forEach(function(product) { %>
+        <tr class="tableStyle">
+            <td>
+                <%= product.id %>
+            </td>
+            <td>
+                <%= product.productName %>
+            </td>
+            <td>
+                <%= product.unitPrice %>
+            </td>
+            <td>
+                <input type="text" id="itemCount_<%= product.id %>" name="itemCount" onchange="updatehref(this);"/>
+            </td>            
+            <td>
+                <a href="cart/<%= product.id %>/" id="lnkItem_<%= product.id %>">Add to cart</a>
+                <!-- <input type="submit" value="Add To Cart"/> -->
+            </td>
+        </tr>
+    <% }); %>
+</table>

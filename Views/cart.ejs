@@ -1,0 +1,30 @@
+<h1>Cart</h1>
+
+<table>
+    <tr class="tableStyle">
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Product Count</th>                
+    </tr>
+    <% cartdetail.forEach(function(cartItem) { %>
+        <tr class="tableStyle">
+            <td>
+                <%= cartItem.itemid %>
+            </td>
+            <td>
+                <%= cartItem.productName  %>
+            </td>
+            <td>
+                <%= cartItem.itemcount  %>
+            </td>
+        </tr>
+    <% }); %>
+    <tr>
+        <td>
+                <a href="/order">Place order</a>
+        </td>
+        <td>
+                <a href="/productList">Back to Products</a>
+        </td>
+    </tr>
+</table>
